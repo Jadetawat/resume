@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadetawat Kirdphoksap - Infographic Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --accent-color: #3498db;  /* Bright Blue */
+            --text-dark: #333;
+            --bg-gray: #f4f6f7;
+            --light-gray: #ecf0f1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #555;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .resume-container {
+            background-color: white;
+            width: 210mm; /* A4 Width */
+            min-height: 297mm; /* A4 Height */
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            display: grid;
+            grid-template-columns: 1fr;
+            overflow: hidden; 
+        }
+
+        /* HEADER */
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1; 
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header h2 {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--accent-color);
+            margin-top: 5px;
+        }
+        
+        /* Profile Image Container */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .profile-img {
+            width: 200px; 
+            height: 200px;
+            border-radius: 50%; 
+            object-fit: cover;
+            border: 4px solid var(--accent-color); 
+        }
+        
+        .header .profile-meta {
+            display: none; 
+        }
+
+
+        /* MAIN CONTENT GRID */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 35% 65%; 
+            flex-grow: 1;
+        }
+
+        /* LEFT COLUMN (SIDEBAR) */
+        .left-col {
+            padding: 30px 20px;
+            background-color: var(--bg-gray);
+            border-right: 1px solid #e0e0e0;
+        }
+
+        /* RIGHT COLUMN (MAIN) */
+        .right-col {
+            padding: 30px 40px;
+        }
+
+        /* SECTION TITLE */
+        h3.section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        h3.section-title i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        /* GENERAL INFO ITEMS */
+        .info-item {
+            display: flex;
+            align-items: flex-start; 
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--text-dark);
+            flex-direction: row; 
+        }
+        .info-item i {
+            color: var(--accent-color);
+            margin-right: 15px;
+            width: 20px;
+            text-align: center;
+            margin-top: 2px; 
+        }
+        .address-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Language Flags */
+        .language-flags {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .language-flags img {
+            width: 30px;
+            height: 20px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            object-fit: cover;
+        }
+        /* Updated Language Item to support Links */
+        .language-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            text-decoration: none; /* Remove underline for links */
+            color: inherit;
+            transition: transform 0.2s;
+        }
+        /* Hover effect for Language Link */
+        a.language-item:hover {
+            transform: scale(1.1); /* Slight zoom on hover */
+            color: var(--accent-color);
+        }
+        .language-item .lang-name {
+            font-weight: 600;
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px; 
+            text-align: center;
+        }
+        .skill-item {
+            padding: 8px 5px; 
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 75px; 
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            background-color: #f0f8ff; 
+        }
+
+        .skill-item i {
+            font-size: 24px; 
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+         .skill-item .icon-img { 
+            width: 25px;
+            height: 25px;
+            object-fit: contain;
+            margin-bottom: 5px;
+        }
+        .skill-item p {
+            font-size: 10px; 
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid var(--accent-color);
+            margin-left: 10px; 
+        }
+        .timeline-item {
+            margin-bottom: 25px; 
+            position: relative;
+        }
+        .timeline-icon {
+            position: absolute;
+            left: -38px; 
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 3px solid var(--accent-color); 
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px; 
+            color: var(--primary-color);
+            z-index: 1;
+        }
+        .timeline-header {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 15px;
+        }
+        .timeline-subtitle {
+            font-weight: 600;
+            color: #555; 
+            font-size: 13px;
+            margin-top: 2px;
+        }
+        
+        /* CSS FOR LINKS */
+        .timeline-subtitle a, a.project-card {
+            text-decoration: none;
+            color: inherit; 
+            transition: all 0.3s;
+        }
+        .timeline-subtitle a:hover {
+            color: var(--accent-color); 
+            text-decoration: underline; 
+        }
+        a.project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            background-color: #f0f8ff; 
+        }
+
+        .timeline-date {
+            font-size: 11px;
+            color: #777;
+            margin-top: 2px;
+        }
+
+        /* ACHIEVEMENTS & PROJECTS GRID */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .project-card {
+            text-align: center;
+            padding: 15px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px; 
+            cursor: pointer; 
+        }
+        .project-card i {
+            font-size: 30px; 
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+        .project-card p {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        /* ========================================= */
+        /* RESPONSIVE DESIGN (MOBILE) */
+        /* ========================================= */
+        @media screen and (max-width: 768px) {
+            body {
+                background-color: white; 
+                padding: 0;
+            }
+            .resume-container {
+                width: 100%; 
+                min-height: auto;
+                box-shadow: none;
+                display: flex;
+                flex-direction: column;
+            }
+            .header {
+                flex-direction: column-reverse; /* รูปอยู่บน ชื่ออยู่ล่าง */
+                text-align: center;
+                gap: 20px;
+                padding: 30px 20px;
+                height: auto; 
+                align-items: center;
+            }
+            .header h1 {
+                font-size: 24px; 
+            }
+            .main-grid {
+                grid-template-columns: 1fr; 
+            }
+            .left-col {
+                border-right: none;
+                border-bottom: 10px solid #f4f6f7; 
+                padding-top: 20px;
+            }
+            .right-col {
+                padding-top: 20px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr; /* โปรเจกต์เรียงแถวละ 1 */
+            }
+        }
+
+        /* PRINT SETTINGS */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                width: 100%;
+                min-height: auto;
+                display: grid; /* บังคับ Grid เดิมตอนปริ้นท์ */
+                grid-template-columns: 1fr;
+            }
+            .main-grid {
+                grid-template-columns: 35% 65%; /* บังคับ 2 คอลัมน์ตอนปริ้นท์ */
+            }
+            .header {
+                flex-direction: row; /* บังคับแนวนอนตอนปริ้นท์ */
+                text-align: left;
+            }
+            .left-col {
+                border-right: 1px solid #e0e0e0;
+                border-bottom: none;
+            }
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        <div class="header">
+            <div>
+                <h1>JADETAWAT KIRDPHOKSAP</h1>
+                <h2>Programmer | Backend & Game Developer <span class="japanese">プログラマー</span></h2>
+            </div>
+            
+            <div class="profile-section">
+                <img src="jade_image.jpg" alt="Profile Picture" class="profile-img">
+            </div>
+
+            <div class="profile-meta">
+                </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="left-col">
+                
+                <h3 class="section-title"><i class="fas fa-address-card"></i> Contact</h3>
+                <div class="contact-section">
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="address-group">
+                            <span>2/159 Nopparat 26 Alley</span>
+                            <span>Krisadanakorn Pinklao Village</span>
+                            <span>Borommaratchachonnani Road</span>
+                            <span>Bangkok</span>
+                        </div>
+                    </div>
+
+                    <a href="mailto:jadetawat.k@gmail.com" class="info-item">
+                        <i class="fas fa-envelope"></i> jadetawat.k@gmail.com
+                    </a>
+                    
+                    <a href="tel:0826659514" class="info-item">
+                        <i class="fas fa-phone"></i> 082-665-9514
+                    </a>
+
+                    <div class="info-item"><i class="fab fa-github"></i> github.com/Jadetawat</div>
+                    <div class="info-item"><i class="fas fa-check-circle"></i>Military Status: Completed</div>
+
+                </div>
+
+                <br>
+
+                <h3 class="section-title"><i class="fas fa-language"></i> Languages</h3>
+                <div class="language-flags">
+                    <div class="language-item">
+                        <img src="https://flagcdn.com/th.svg" alt="Thai Flag">
+                        <span class="lang-name">Thai</span>
+                    </div>
+                    
+                    <a href="https://drive.google.com/file/d/1qFEnh5OMMQG1tAwIkZvJowuZVJpSf-sE/view?usp=sharing" target="_blank" class="language-item">
+                        <img src="https://flagcdn.com/gb.svg" alt="English Flag">
+                        <span class="lang-name">English (TOEIC 600)</span>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/1-2e99SoW8Zf76L92mbQMMOSPTgZYCU9i/view?usp=sharing" target="_blank" class="language-item">
+                        <img src="https://flagcdn.com/jp.svg" alt="Japanese Flag">
+                        <span class="lang-name">Japanese N5</span>
+                    </a>
+                </div>
+
+                <br>
+                
+                <h3 class="section-title"><i class="fas fa-tools"></i> Skills (Tech Stack)</h3>
+                <div class="skills-grid">
+                    <a href="https://dotnet.microsoft.com/en-us/" target="_blank" class="skill-item">
+                        <i class="fab fa-windows"></i><p>.NET8 / C#</p>
+                    </a>
+                    <a href="https://flask.palletsprojects.com/" target="_blank" class="skill-item">
+                        <i class="fab fa-python"></i><p>Flask / Python</p>
+                    </a>
+                    <a href="https://react.dev/" target="_blank" class="skill-item">
+                        <i class="fab fa-react"></i><p>React.js / HTML/CSS</p>
+                    </a>
+                    <a href="https://www.w3schools.com/sql/" target="_blank" class="skill-item">
+                        <i class="fas fa-database"></i><p>SQL</p>
+                    </a>
+                    <a href="https://unity.com/" target="_blank" class="skill-item">
+                        <i class="fab fa-unity"></i><p>Unity</p>
+                    </a>
+                    <a href="https://dev.java/" target="_blank" class="skill-item">
+                        <i class="fab fa-java"></i><p>Java</p>
+                    </a>
+                    <a href="https://www.microsoft.com/microsoft-365" target="_blank" class="skill-item">
+                        <i class="fas fa-file-alt"></i><p>MS Office</p>
+                    </a>
+                    <a href="https://en.wikipedia.org/wiki/Data_visualization" target="_blank" class="skill-item">
+                        <i class="fas fa-chart-line"></i><p>Data Visualization</p>
+                    </a>
+                    <a href="https://learn.microsoft.com/en-us/sql/reporting-services/reports/report-definition-language-ssrs" target="_blank" class="skill-item">
+                        <i class="fas fa-file-invoice"></i><p>RDL</p>
+                    </a>
+                    <a href="https://www.blender.org/" target="_blank" class="skill-item">
+                        <i class="fas fa-cube"></i><p>Blender</p>
+                    </a>
+                    <a href="https://isocpp.org/" target="_blank" class="skill-item">
+                        <i class="fas fa-code-branch"></i><p>C++</p>
+                    </a>
+                    <a href="https://www.swi-prolog.org/features.html" target="_blank" class="skill-item">
+                        <i class="fas fa-book"></i><p>Prolog</p>
+                    </a>
+                </div>
+                
+            </div>
+
+            <div class="right-col">
+                <h3 class="section-title"><i class="fas fa-user-clock"></i> Experience & Education</h3>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-header">Programmer</div>
+                        <div class="timeline-subtitle">
+                            <a href="https://www.pacific-orient.com/" target="_blank">P&O Global Technologies (Thailand) Co., Ltd.</a>
+                        </div>
+                        <div class="timeline-date">Present</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-header">Intern</div>
+                        <div class="timeline-subtitle">
+                            <a href="https://www.ncsa.or.th/" target="_blank">National Cyber Security Agency Thailand (NCSA)</a>
+                        </div>
+                        <div class="timeline-date">2 Months</div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-header">B.Sc. Computer Science</div>
+                        <div class="timeline-subtitle">
+                            <a href="https://www.kmutnb.ac.th/" target="_blank">King Mongkut’s University of Technology North Bangkok</a>
+                        </div>
+                        <div class="timeline-subtitle">
+                            <a href="https://drive.google.com/file/d/1HW4IZffb8z4XNZq9xRFU9xnRQRO1iuo0/view?usp=sharing" target="_blank">Graduated 2025</a>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-header">Chulalongkorn Demonstration High School</div>
+                        <div class="timeline-subtitle">
+                            <a href="https://satitm.chula.ac.th/" target="_blank">Chulalongkorn Demonstration High School</a>
+                        </div>
+                        <div class="timeline-date">Graduated 2018</div>
+                    </div>
+                </div>
+                
+                <br>
+                
+                <h3 class="section-title"><i class="fas fa-award"></i> Achievements & Projects</h3>
+                
+                <div class="projects-grid">
+                    <a href="https://web2.edu.chula.ac.th/edcomm/edcomm04-61.pdf" target="_blank" class="project-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Youth Award (2018) for Electric Generator Project</p>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/1Wg1iPV9lXjir1RZQYnKMEdBjh3QgFklW/view?usp=sharing" target="_blank" class="project-card">
+                        <i class="fas fa-file-image"></i>
+                        <p>OCR Web Application (Python/Flask)</p>
+                    </a>
+                    
+                    <a href="https://drive.google.com/file/d/1UGNq1Fdm_1rGrEPvlo1kkwXXVrCcIDxj/view?usp=sharing" target="_blank" class="project-card">
+                        <i class="fas fa-music"></i>
+                        <p>PC 2D Rhythm Game (Unity, MP3 Level Gen)</p>
+                    </a>
+
+                    <a href="https://github.com/Jadetawat/Javagithub" target="_blank" class="project-card">
+                        <i class="fas fa-gamepad"></i>
+                        <p>PC 2D Shooter Game (Java)</p>
+                    </a>
+
+                    <a href="https://www.thaibg.com/board/view.php?topic=24778" target="_blank" class="project-card">
+                        <i class="fas fa-chess-knight"></i>
+                        <p>Thai/International Chess Competitor</p>
+                    </a>
+
+                    <a href="https://drive.google.com/file/d/13MEGQoAElYSF8EXUREYI1f0Ksd3u9Fx5/view?usp=sharing" target="_blank" class="project-card">
+                        <i class="fas fa-cube"></i> 
+                        <p>Blender Modeling (Props/Objects)</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
